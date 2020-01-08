@@ -14,12 +14,15 @@ After facing all these issues and more, I've come up with this setup and I thoug
 
 ## Table of contents
 
-1. [Uninstall Anaconda](#anaconda)
-2. [Install the basics](#basics)
-3. [Virtual enviroments](#venv)
-4. [Webography](#webography)
+- [Mac set up for data science projects](#mac-set-up-for-data-science-projects)
+  - [Motivation](#motivation)
+  - [Table of contents](#table-of-contents)
+  - [Uninstall Anaconda ](#uninstall-anaconda)
+  - [Install the basics ](#install-the-basics)
+  - [Virtual enviroments ](#virtual-enviroments)
+  - [Webography ](#webography)
 
-### Uninstall Anaconda <a name="anaconda"></a>
+## Uninstall Anaconda <a name="anaconda"></a>
 
 This set up will use Homebrew, I find it more lightweight and easier to work with. If you have Anaconda installed:
 
@@ -33,17 +36,7 @@ anaconda-clean --yes
 rm -rf ~/anaconda
 ```
 
-Next, edit in either your `.bash_profile` or `.zshrc`.
-
-```bash
-# From this
-export PATH="/Users/<your_user>/anaconda3/bin:$PATH"
-
-# To this
-export PATH="/usr/local/bin:$PATH"
-```
-
-### Install the basics <a name="basics"></a>
+## Install the basics <a name="basics"></a>
 
 ```bash
 # Homebrew
@@ -62,18 +55,27 @@ brew install zsh zsh-completions
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 ```
 
-Set `ZSH_THEME=powerlevel10k/powerlevel10k` in your `~/.zshrc.`
-Then save, restart your terminal and follow the instructions.
+In your `~/.zshrc.` change the followoing:
 
-You will probably want to set up at least a couple of aliases. Add the following in your `~/.zshrc.` as well.
+```bash
+# This
+export PATH="/Users/<your_user>/anaconda3/bin:$PATH"
 
-```bahs
-# Aliases
+# To this
+export PATH="/usr/local/bin:$PATH"
+
+# Then add the line
+ZSH_THEME=powerlevel10k/powerlevel10k
+
+# You will probably want to set up at least a couple of aliases
+
 alias pip="pip3"
 alias python="python3"
 ```
 
-### Virtual enviroments <a name="venv"></a>
+Then save, restart your terminal and follow the instructions.
+
+## Virtual enviroments <a name="venv"></a>
 
 One virtual environment per project will make your life much easier. However, the 'standard' way requires you to remember to activate and deactivate them every time you switch folders.
 
@@ -95,7 +97,7 @@ Now, every time you get into a folder that contains a `requirements.txt`, your t
 
 Auto-switch will add a file called `.venv` into every project, you will have to add it into your `.gitignore`'s.
 
-#### Use the same virtual environment in the Jupyter Notebooks within that project
+**Use the same virtual environment in the Jupyter Notebooks within that project.**
 
 You will need to create a new kernel per project by following the next steps:
 
@@ -126,7 +128,7 @@ jupyter kernelspec list
 jupyter kernelspec uninstall <unwanted-kernel>
 ```
 
-### Webography <a name="webography"></a>
+## Webography <a name="webography"></a>
 
 In alphabetical order.
 
