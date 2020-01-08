@@ -68,7 +68,6 @@ export PATH="/usr/local/bin:$PATH"
 ZSH_THEME=powerlevel10k/powerlevel10k
 
 # You will probably want to set up at least a couple of aliases
-
 alias pip="pip3"
 alias python="python3"
 ```
