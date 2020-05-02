@@ -27,54 +27,54 @@ After facing all these issues and more, I've come up with this setup and I thoug
 This set up will use Homebrew, I find it more lightweight and easier to work with. If you have Anaconda installed:
 
 ```bash
-# Delete configs
+# Delete configs.
 conda install anaconda-clean
 
 anaconda-clean --yes
 
-# Delete the anaconda install folder
+# Delete the anaconda install folder.
 rm -rf ~/anaconda
 ```
 
 ## Install the basics <a name="basics"></a>
 
 ```bash
-# Homebrew
+# Homebrew.
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" # Or download here: https://brew.sh/
 
-# Latest Python
+# Latest Python.
 brew install python3
 
-# iTerm2
+# iTerm2.
 brew cask install iterm2  # Or download here: https://iterm2.com/
 
-# Install Zsh
+# Install Zsh.
 brew install zsh
 brew install zsh zsh-completions
 
-# Restart iTerm
+# Restart iTerm.
 
 # Looks matter! Make the terminal look nice, follow steps from this repo: https://github.com/romkatv/powerlevel10k
 brew install romkatv/powerlevel10k/powerlevel10k
 
 echo 'source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
 
-# Restart iTerm
+# Restart iTerm.
 ```
 
 In your `~/.zshrc.` change the followoing:
 
 ```bash
-# This
+# This.
 export PATH="/Users/<your_user>/anaconda3/bin:$PATH"
 
-# To this
+# To this.
 export PATH="/usr/local/bin:$PATH"
 
-# Edit 'ZSH_THEME'
+# Edit 'ZSH_THEME'.
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# You will probably want to set up at least a couple of aliases
+# You will probably want to set up at least a couple of aliases.
 alias pip="pip3"
 alias python="python3"
 ```
@@ -108,29 +108,35 @@ Auto-switch will add a file called `.venv` into every project, you will have to 
 You will need to create a new kernel per project by following the next steps:
 
 ```bash
-# If needed install Jupyter
+# Install Jupyter.
 pip install jupyter
 
-# Install IPython kernel for Jupyter
+# Install IPython kernel for Jupyter.
 pip install ipykernel
+```
 
-# If required, create virtual environment
+### Example
+
+Create virtual environment and install new Kernel to run this virtual environment in the jupyter notebook.
+
+```bash
+# Create virtual environment.
 mkvenv
 
-# Build new Kernel
+# Build new Kernel.
 ipython kernel install --user --name=<repo-name>
 
-# Start notebook and select the new kernel
+# Start notebook and select the new kernel.
 jupyter notebook
 ```
 
 To uninstall Kernels:
 
 ```bash
-# See a list of current Kernels
+# See a list of current Kernels.
 jupyter kernelspec list
 
-# Uninstall the desired one
+# Uninstall the desired one.
 jupyter kernelspec uninstall <unwanted-kernel>
 ```
 
