@@ -6,7 +6,7 @@ My stable set-up to be able to have self-contained and reproducible projects.
 
 * Have you ever struggled with installations paths and packages versions?
 
-* Have you end up installing everything in both Anaconda and Homebrew to avoid ``path`` issues? Only to result in a big mess when an actual issue presents itself?
+* Have you end up installing everything in both Anaconda and Homebrew to avoid `path` issues? Only to result in a big mess when an actual issue presents itself?
 
 * Have you forgot to activate a virtual environment and then messed up the project?
 
@@ -22,7 +22,7 @@ After facing all these issues and more, I've come up with this setup and I thoug
   - [Virtual enviroments ](#virtual-enviroments)
   - [Webography ](#webography)
 
-## Uninstall Anaconda <a name="anaconda"></a>
+## (Optional) Uninstall Anaconda <a name="anaconda"></a>
 
 This set up will use Homebrew, I find it more lightweight and easier to work with. If you have Anaconda installed:
 
@@ -40,7 +40,7 @@ rm -rf ~/anaconda
 
 ```bash
 # Homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" # Or download here: https://brew.sh/
 
 # Latest Python
 brew install python3
@@ -48,11 +48,18 @@ brew install python3
 # iTerm2
 brew cask install iterm2  # Or download here: https://iterm2.com/
 
-# Oh My Zsh
+# Install Zsh
+brew install zsh
 brew install zsh zsh-completions
 
-# Looks matter! Make the terminal look nice
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+# Restart iTerm
+
+# Looks matter! Make the terminal look nice, follow steps from this repo: https://github.com/romkatv/powerlevel10k
+brew install romkatv/powerlevel10k/powerlevel10k
+
+echo 'source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
+
+# Restart iTerm
 ```
 
 In your `~/.zshrc.` change the followoing:
@@ -64,8 +71,8 @@ export PATH="/Users/<your_user>/anaconda3/bin:$PATH"
 # To this
 export PATH="/usr/local/bin:$PATH"
 
-# Then add the line
-ZSH_THEME=powerlevel10k/powerlevel10k
+# Edit 'ZSH_THEME'
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # You will probably want to set up at least a couple of aliases
 alias pip="pip3"
