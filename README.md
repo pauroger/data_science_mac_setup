@@ -1,4 +1,4 @@
-# Mac set up for data science projects
+# My mac set up for data science projects
 
 My stable set-up to be able to have self-contained and reproducible projects.
 
@@ -38,6 +38,8 @@ rm -rf ~/anaconda
 
 ## Install the basics <a name="basics"></a>
 
+On the native Terminal, run the following:
+
 ```bash
 # Homebrew.
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" # Or download here: https://brew.sh/
@@ -59,7 +61,7 @@ brew install romkatv/powerlevel10k/powerlevel10k
 
 echo 'source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
 
-# Restart iTerm.
+# Restart iTerm and follow the indications that will appear.
 ```
 
 In your `~/.zshrc.` change the followoing:
@@ -70,6 +72,8 @@ export PATH="/Users/<your_user>/anaconda3/bin:$PATH"
 
 # To this.
 export PATH="/usr/local/bin:$PATH"
+# Or run: 
+echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.zshrc
 
 # Edit 'ZSH_THEME'.
 ZSH_THEME="powerlevel10k/powerlevel10k"
